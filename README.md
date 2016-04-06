@@ -1,4 +1,5 @@
-# DoingDataScience: Hash-based Similarity Detection
+# Hash-based Similarity Detection 
+(project @ DoingDataScience WU course)
 
 ## Introduction
 Motivation
