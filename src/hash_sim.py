@@ -7,6 +7,7 @@ Created on Mar 6, 2016
 '''
 
 from __future__ import division
+from hashes.simhash import simhash
 
 
 def hamming_distance(a, b, base):
@@ -23,9 +24,9 @@ def hamming_distance(a, b, base):
 
 class HashFunction():
 
-    def __init__(self):
+    def __init__(self, hashbits=12):
         self.hash_base = 10
-        self.hashbits = 12
+        self.hashbits = hashbits
 
     def compute_hash(self, text):
         raise NotImplemented
@@ -34,7 +35,19 @@ class HashFunction():
         return text
 
     def distance_function(self, doc_a, doc_b):
+        # percentage-wise
         return hamming_distance(doc_a, doc_b, self.hash_base)/len(doc_a)
+
+
+class SimHash(HashFunction):
+
+    def __init__(self, hashbits=64):
+        HashFunction.__init__(self)
+        self.hash_base = 16
+        self.hashbits = hashbits
+
+    def compute_hash(self, text):
+        return simhash(text, hashbits=self.hashbits)#.hex()
 
 
 class NilsimsaHash(HashFunction):
