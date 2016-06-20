@@ -15,9 +15,10 @@ from hashes.simhash import simhash
 from itertools import combinations, permutations
 
 
-PATH = '/home/vendi/Projects/DoingDataScience/data/at_dump_v1/daopat'
+PATH = '../data/at_dump_v1/daopat'
 FILES = ['httpwww.wienticket.atfeedsvorverkauf.phpformatcsv',
-            'httpwww.apcs.atapcsausgleichsenergiemarktstatistikenopendatastatistikrz2013.csv']
+         'httpwww.apcs.atapcsausgleichsenergiemarktstatistikenopendatastatistikrz2013.csv']
+
 
 def get_files_from_dir(root, file_type='csv'):
     result = []
